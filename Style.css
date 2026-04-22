@@ -125,6 +125,10 @@ body::after {
 .contact-card:hover {
   transform: translateY(-2px);
 }
+.contact-card > div:last-child {
+  flex: 1;          /* allows text to take remaining space */
+  min-width: 0;     /* 🔥 VERY IMPORTANT for text wrapping */
+}
 
 .icon {
   width: 44px;
