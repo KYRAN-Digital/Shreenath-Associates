@@ -75,11 +75,10 @@ body::after {
 }
 
 .hero-headline {
-  margin: 10px 0 6px;
+  margin: 10px 0 3px;
   font-size: 24px;
   font-weight: 700;
-  color: #004aad;   /* or your light blue */
-
+  color: #004aad;
   letter-spacing: -0.3px;
 }
 
