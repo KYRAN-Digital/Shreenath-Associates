@@ -74,6 +74,15 @@ body::after {
   border-radius: 12px;
 }
 
+.hero-headline {
+  margin: 10px 0 6px;
+  font-size: 24px;
+  font-weight: 700;
+  color: #004aad;   /* or your light blue */
+
+  letter-spacing: -0.3px;
+}
+
 .brand-tagline {
   font-size: 15px;
   opacity: 0.9;
