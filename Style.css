@@ -129,6 +129,14 @@ body::after {
   flex: 1;          /* allows text to take remaining space */
   min-width: 0;     /* 🔥 VERY IMPORTANT for text wrapping */
 }
+.contact-card p {
+  margin: 0;
+  font-size: 14px;
+  opacity: 0.85;
+
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
 
 .icon {
   width: 44px;
