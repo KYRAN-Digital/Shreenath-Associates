@@ -103,14 +103,31 @@
       </section>
 
 
-      <!-- ================= PROJECTS (FUTURE) ================= -->
-      <section class="projects">
-        <h3>Our Projects</h3>
+   <!-- ================= PROJECTS ================= -->
+<section class="projects">
+  <h3>Our Projects</h3>
 
-        <div class="project-placeholder">
-          <p>Project gallery coming soon...</p>
-        </div>
-      </section>
+  <div class="slider-container">
+    
+    <button class="nav prev">&#10094;</button>
+
+    <div class="slider" id="projectSlider">
+      <img src="./images/project1.jpg" alt="Project 1">
+      <img src="./images/project2.jpg" alt="Project 2">
+      <img src="./images/project3.jpg" alt="Project 3">
+      <img src="./images/project4.jpg" alt="Project 4">
+      <img src="./images/project5.jpg" alt="Project 5">
+      <img src="./images/project6.jpg" alt="Project 6">
+      <img src="./images/project7.jpg" alt="Project 7">
+      <img src="./images/project8.jpg" alt="Project 8">
+      <img src="./images/project9.jpg" alt="Project 9">
+      <img src="./images/project10.jpg" alt="Project 10">
+    </div>
+
+    <button class="nav next">&#10095;</button>
+
+  </div>
+</section>
 
 
       <!-- ================= FOOTER ================= -->
@@ -122,5 +139,36 @@
 </footer>
     </main>
   </div>
+
+<!-- ================= JAVASCRIPT ================= -->
+  <script>
+  const slider = document.getElementById('projectSlider');
+  const images = slider.querySelectorAll('img');
+
+  let index = 0;
+
+  function scrollToImage(i) {
+    const imgWidth = images[0].clientWidth + 15; // 15 = gap
+    slider.scrollTo({
+      left: imgWidth * i,
+      behavior: 'smooth'
+    });
+  }
+
+  document.querySelector('.next').addEventListener('click', () => {
+    if (index < images.length - 1) {
+      index++;
+      scrollToImage(index);
+    }
+  });
+
+  document.querySelector('.prev').addEventListener('click', () => {
+    if (index > 0) {
+      index--;
+      scrollToImage(index);
+    }
+  });
+</script>
+
 </body>
 </html>
