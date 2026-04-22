@@ -76,15 +76,14 @@ body::after {
 
 .hero-headline {
   margin: 10px 0 3px;
-  font-size: 20px;
+  font-size: 24px;
   font-weight: 700;
   color: #004aad;
   letter-spacing: -0.3px;
-  opacity: 0.9;
 }
 
 .brand-tagline {
-  font-size: 10px;
+  font-size: 15px;
   opacity: 0.9;
 }
 
@@ -222,4 +221,66 @@ body::after {
 .footer-banner strong {
   color: #f97316;
   font-weight: 600;
+}
+
+/* ===== PROJECT SLIDER ===== */
+.projects h3 {
+  margin-bottom: 10px;
+}
+
+.slider-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.slider {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  gap: 15px;
+  padding: 10px;
+
+ -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory;
+
+}
+
+.slider::-webkit-scrollbar {
+  display: none;
+}
+
+.slider img {
+  min-width: 85%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
+  flex-shrink: 0;
+}
+
+/* ARROWS */
+.nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.6);
+  color: white;
+  border: none;
+  padding: 10px 14px;
+  cursor: pointer;
+  border-radius: 50%;
+  font-size: 18px;
+  z-index: 10;
+}
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}
+
+.nav:hover {
+  background: rgba(0,0,0,0.8);
 }
