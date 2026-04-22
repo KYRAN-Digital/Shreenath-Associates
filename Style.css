@@ -251,36 +251,36 @@ body::after {
 }
 
 .slider img {
-  min-width: 85%;
-  height: 200px;
+  width: 100%;
+  max-width: 100%;
+  aspect-ratio: 16 / 9;   /* 🔥 forces same shape */
   object-fit: cover;
+
   border-radius: 12px;
   flex-shrink: 0;
+
+  scroll-snap-align: center;
 }
 
-/* ARROWS */
-.nav {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(0,0,0,0.6);
-  color: white;
-  border: none;
-  padding: 10px 14px;
-  cursor: pointer;
+/* ===== DOT INDICATOR ===== */
+.dots {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  gap: 6px;
+}
+
+.dots span {
+  width: 8px;
+  height: 8px;
+  background: #ccc;
   border-radius: 50%;
-  font-size: 18px;
-  z-index: 10;
+  transition: 0.3s;
+  cursor: pointer;
 }
 
-.prev {
-  left: 10px;
-}
-
-.next {
-  right: 10px;
-}
-
-.nav:hover {
-  background: rgba(0,0,0,0.8);
+.dots span.active {
+  width: 18px;
+  background: #f97316;
+  border-radius: 10px;
 }
