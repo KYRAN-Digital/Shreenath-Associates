@@ -70,12 +70,12 @@ body::after {
 }
 
 .logo-shell img {
-  width: 250px;
+  width: 225px;
   border-radius: 12px;
 }
 
 .brand-name {
-  margin-top: 0.05px;
+  margin-top: 5px;
   font-size: 28px;
    color: #004aad;
 }
