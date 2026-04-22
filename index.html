@@ -107,26 +107,24 @@
 <section class="projects">
   <h3>Our Projects</h3>
 
-  <div class="slider-container">
-    
-    <button class="nav prev">&#10094;</button>
+ <div class="slider-container">
 
-    <div class="slider" id="projectSlider">
-      <img src="./images/project1.jpg" alt="Project 1">
-      <img src="./images/project2.jpg" alt="Project 2">
-      <img src="./images/project3.jpg" alt="Project 3">
-      <img src="./images/project4.jpg" alt="Project 4">
-      <img src="./images/project5.jpg" alt="Project 5">
-      <img src="./images/project6.jpg" alt="Project 6">
-      <img src="./images/project7.jpg" alt="Project 7">
-      <img src="./images/project8.jpg" alt="Project 8">
-      <img src="./images/project9.jpg" alt="Project 9">
-      <img src="./images/project10.jpg" alt="Project 10">
-    </div>
-
-    <button class="nav next">&#10095;</button>
-
+  <div class="slider" id="projectSlider">
+    <img src="./images/project1.jpg">
+    <img src="./images/project2.jpg">
+    <img src="./images/project3.jpg">
+    <img src="./images/project4.jpg">
+    <img src="./images/project5.jpg">
+    <img src="./images/project6.jpg">
+    <img src="./images/project7.jpg">
+    <img src="./images/project8.jpg">
+    <img src="./images/project9.jpg">
+    <img src="./images/project10.jpg">
   </div>
+
+  <div class="dots" id="dots"></div>
+
+</div>
 </section>
 
 
@@ -141,31 +139,50 @@
   </div>
 
 <!-- ================= JAVASCRIPT ================= -->
-  <script>
+<script>
   const slider = document.getElementById('projectSlider');
   const images = slider.querySelectorAll('img');
+  const dotsContainer = document.getElementById('dots');
 
   let index = 0;
 
-  function scrollToImage(i) {
-    const imgWidth = images[0].clientWidth + 15; // 15 = gap
-    slider.scrollTo({
-      left: imgWidth * i,
-      behavior: 'smooth'
-    });
-  }
+  // 🔥 Create dots
+  images.forEach((_, i) => {
+    const dot = document.createElement('span');
+    if (i === 0) dot.classList.add('active');
 
-  document.querySelector('.next').addEventListener('click', () => {
-    if (index < images.length - 1) {
-      index++;
-      scrollToImage(index);
-    }
+    dot.addEventListener('click', () => {
+      index = i;
+      scrollToImage();
+    });
+
+    dotsContainer.appendChild(dot);
   });
 
-  document.querySelector('.prev').addEventListener('click', () => {
-    if (index > 0) {
-      index--;
-      scrollToImage(index);
+  const dots = dotsContainer.querySelectorAll('span');
+
+  function updateDots() {
+    dots.forEach(dot => dot.classList.remove('active'));
+    dots[index].classList.add('active');
+  }
+
+  function scrollToImage() {
+    const width = slider.clientWidth;
+    slider.scrollTo({
+      left: width * index,
+      behavior: 'smooth'
+    });
+    updateDots();
+  }
+
+  // 🔥 Sync dots when user swipes
+  slider.addEventListener('scroll', () => {
+    const width = slider.clientWidth;
+    const newIndex = Math.round(slider.scrollLeft / width);
+
+    if (newIndex !== index) {
+      index = newIndex;
+      updateDots();
     }
   });
 </script>
