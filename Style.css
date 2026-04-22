@@ -76,14 +76,14 @@ body::after {
 
 .hero-headline {
   margin: 10px 0 3px;
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 700;
   color: #004aad;
   letter-spacing: -0.3px;
 }
 
 .brand-tagline {
-  font-size: 15px;
+  font-size: 13px;
   opacity: 0.9;
 }
 
