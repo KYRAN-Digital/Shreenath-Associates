@@ -70,14 +70,16 @@ body::after {
 }
 
 .logo-shell img {
-  width: 250px;
+  width: 300px;
   border-radius: 12px;
 }
 
 .brand-name {
-  margin-top: 0.2px;
+  margin-top: 0.05px;
   font-size: 28px;
+   color: #004aad;
 }
+
 
 .brand-name span {
   color: var(--orange);
