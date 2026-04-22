@@ -70,23 +70,12 @@ body::after {
 }
 
 .logo-shell img {
-  width: 200px;
+  width: 250px;
   border-radius: 12px;
 }
 
-.brand-name {
-  margin-top: 10px;
-  font-size: 28px;
-   color: #004aad;
-}
-
-
-.brand-name span {
-  color: var(--orange);
-}
-
 .brand-tagline {
-  font-size: 14px;
+  font-size: 15px;
   opacity: 0.9;
 }
 
