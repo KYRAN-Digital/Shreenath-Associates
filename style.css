@@ -121,7 +121,7 @@ body::after {
   margin: 0 auto;
 }
 
-/* ================= CONNECT GRID ================= */
+/* ================= CONNECT LIST ================= */
 .connect-section {
   display: flex;
   flex-direction: column;
@@ -136,73 +136,96 @@ body::after {
   letter-spacing: 1px;
 }
 
-.connect-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 14px;
+.connect-list {
+  display: flex;
+  flex-direction: column;
 }
 
-.contact-card {
+.connect-item {
   display: flex;
-  flex-direction: row;
   align-items: center;
   gap: 16px;
-  padding: 14px 18px;
-  border-radius: 8px;
+  padding: 14px 4px;
   text-decoration: none;
-  background: #f1f5f9;
-  border: 1px solid var(--border-color);
-  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.02);
+  background: transparent;
+  border-bottom: 1px solid #f1f5f9;
   transition: var(--transition);
-  min-height: 76px;
 }
 
-.contact-card:hover {
-  transform: translateY(-2px);
-  border-color: var(--accent-orange);
-  background: var(--white);
-  box-shadow: 0 8px 16px rgba(11, 61, 92, 0.05);
+.connect-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
 }
 
-.contact-card .icon {
-  width: 44px;
-  height: 44px;
+.connect-item:first-child {
+  padding-top: 0;
+}
+
+.connect-item:hover {
+  transform: translateX(6px);
+}
+
+.connect-item .icon {
+  width: 42px;
+  height: 42px;
   flex-shrink: 0;
   display: grid;
   place-items: center;
   border-radius: 50%;
-  color: var(--white);
   transition: var(--transition);
 }
 
-.contact-card:hover .icon {
-  transform: scale(1.1) rotate(5deg);
+.connect-item:hover .icon {
+  transform: scale(1.08);
 }
 
-.icon.call { background: var(--primary-blue); }
-.icon.whatsapp { background: #25d366; }
-.icon.email { background: var(--accent-orange); }
-.icon.location { background: #64748b; }
-
-.contact-card .contact-details {
-  width: 100%;
-}
-
-.contact-card .contact-details strong {
-  display: block;
-  font-size: 14px;
+.icon.call {
+  background: rgba(11, 61, 92, 0.08);
   color: var(--primary-blue);
-  font-weight: 700;
-  margin-bottom: 2px;
 }
 
-.contact-card .contact-details p {
-  font-size: 11px;
+.icon.whatsapp {
+  background: rgba(16, 185, 129, 0.08);
+  color: var(--success);
+}
+
+.icon.email {
+  background: rgba(255, 107, 0, 0.08);
+  color: var(--accent-orange);
+}
+
+.icon.location {
+  background: rgba(71, 85, 105, 0.08);
   color: var(--text-muted);
-  word-break: break-all;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+}
+
+.connect-details {
+  flex-grow: 1;
+}
+
+.connect-details strong {
+  display: block;
+  font-size: 15px;
+  color: var(--text-dark);
+  font-weight: 600;
+  margin-bottom: 1px;
+}
+
+.connect-details p {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.chevron {
+  color: #cbd5e1;
+  display: grid;
+  place-items: center;
+  transition: var(--transition);
+}
+
+.connect-item:hover .chevron {
+  color: var(--accent-orange);
+  transform: translateX(2px);
 }
 
 /* ================= PROJECTS GALLERY ================= */
@@ -255,30 +278,7 @@ body::after {
   transform: scale(1.05);
 }
 
-.slide-caption {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: linear-gradient(transparent, rgba(11, 61, 92, 0.9));
-  padding: 20px;
-  color: var(--white);
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-}
 
-.slide-caption h4 {
-  font-size: 16px;
-  font-weight: 700;
-}
-
-.slide-caption p {
-  font-size: 12px;
-  opacity: 0.85;
-  font-weight: 500;
-}
 
 .dots {
   display: flex;
@@ -437,15 +437,8 @@ body::after {
   font-weight: 600;
 }
 
-/* Responsive adjustment for Grid */
+/* Responsive adjustment */
 @media (max-width: 480px) {
-  .connect-grid {
-    grid-template-columns: 1fr;
-  }
-  .form-row {
-    grid-template-columns: 1fr;
-    gap: 0;
-  }
   .page-frame {
     padding: 20px 12px;
   }
