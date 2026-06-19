@@ -1,15 +1,15 @@
 :root {
-  --primary-blue: #0b3d5c;       /* Steel construction blue */
-  --primary-blue-deep: #072c44;  /* Deep navy blue */
-  --primary-blue-light: #1e4f70; /* Soft steel blue */
-  --accent-orange: #ff6b00;      /* Vibrant construction orange */
-  --accent-orange-soft: #ff8833; /* Glow orange */
+  --primary-blue: #004aad;       /* Logo blue */
+  --primary-blue-deep: #002d6b;  /* Deep logo blue */
+  --primary-blue-light: #2172e5; /* Lighter bright blue */
+  --accent-orange: #ff751f;      /* Logo orange */
+  --accent-orange-soft: #ff914d; /* Soft logo orange */
   --bg-gradient: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 50%, #e2e8f0 100%);
   --white: #ffffff;
   --text-dark: #0f172a;          /* Slate 900 */
   --text-muted: #475569;         /* Slate 600 */
   --border-color: #cbd5e1;       /* Slate 300 */
-  --focus-ring: rgba(255, 107, 0, 0.25);
+  --focus-ring: rgba(255, 117, 31, 0.25);
   --success: #10b981;            /* Emerald 500 */
   --card-shadow: 0 10px 30px -10px rgba(15, 23, 42, 0.08);
   --card-shadow-hover: 0 20px 40px -15px rgba(15, 23, 42, 0.15);
@@ -40,8 +40,8 @@ body::after {
   pointer-events: none;
   z-index: -1;
   background: 
-    radial-gradient(circle at 10% 20%, rgba(255, 107, 0, 0.06), transparent 40%),
-    radial-gradient(circle at 90% 80%, rgba(11, 61, 92, 0.08), transparent 45%);
+    radial-gradient(circle at 10% 20%, rgba(255, 117, 31, 0.06), transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(0, 74, 173, 0.08), transparent 45%);
 }
 
 .page-frame {
@@ -71,6 +71,23 @@ body::after {
 
 .card-section:hover {
   box-shadow: var(--card-shadow-hover);
+}
+
+.card-section h3 {
+  position: relative;
+  padding-left: 14px;
+}
+
+.card-section h3::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 18px;
+  background: var(--accent-orange);
+  border-radius: 2px;
 }
 
 /* ================= HERO CARD ================= */
@@ -329,43 +346,51 @@ body::after {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: 16px 8px;
-  background: var(--bg-gradient);
-  border: 1px solid var(--border-color);
+  padding: 20px 10px;
+  background: var(--white);
+  border: 1px solid rgba(0, 74, 173, 0.08);
+  border-top: 3px solid var(--accent-orange);
   border-radius: 8px;
   transition: var(--transition);
 }
 
 .service-box:hover {
-  border-color: var(--accent-orange);
-  background: var(--white);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 16px rgba(11, 61, 92, 0.04);
+  border-color: var(--primary-blue);
+  border-top-color: var(--primary-blue);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 74, 173, 0.06);
 }
 
 .service-icon {
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   display: grid;
   place-items: center;
-  background: var(--primary-blue-deep);
-  color: var(--white);
+  background: rgba(255, 117, 31, 0.08);
+  color: var(--accent-orange);
   border-radius: 50%;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
   transition: var(--transition);
 }
 
 .service-box:hover .service-icon {
-  background: var(--accent-orange);
+  background: var(--primary-blue);
+  color: var(--white);
+  transform: scale(1.05);
 }
 
 .service-box h4 {
   font-size: 10px;
   font-weight: 700;
-  color: var(--primary-blue);
-  margin-bottom: 2px;
+  color: var(--accent-orange);
+  margin-bottom: 4px;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  transition: var(--transition);
+}
+
+.service-box:hover h4 {
+  color: var(--primary-blue);
 }
 
 .service-box .service-tag {
